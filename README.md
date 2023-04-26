@@ -41,8 +41,31 @@ when using `cuda` programming model for a device with compute capability 8.0 bel
 cmake -DMODEL=cuda -DCMAKE_CXX_COMPILER=nvc++ -DCMAKE_CUDA_COMPILER=nvcc -DCUDA_ARCH=sm_80 ../
 ```
 
-All the kernels are validated at the end of their execution, no explicit validation test is needed.
+All the kernels are validated at the end of their execution, no explicit validation test is needed. Below are some examples of building and running this benchmark for different architectures.
 
+#### Using OpenMP on a CPU
+```bash
+mkdir build
+cd build
+cmake -DMODEL=omp ../
+make
 
+> export OMP_NUM_THREADS=4
+> ./omp-stream 
+BabelStream
+Version: 4.0
+Implementation: OpenMP
+Running kernels 100 times
+Precision: double
+Array size: 268.4 MB (=0.3 GB)
+Total size: 805.3 MB (=0.8 GB)
+Function    MBytes/sec  Min (sec)   Max         Average     
+Copy        17543.651   0.03060     0.12682     0.03857     
+Mul         16751.736   0.03205     0.17480     0.04149     
+Add         18410.511   0.04374     0.13842     0.05503     
+Triad       30536.210   0.02637     0.10638     0.05581     
+Dot         20623.267   0.02603     0.25623     0.03863     
+
+```
 ### Reporting
-The primary FOM is the Triad rate (MB/s). Report all data printed to stdout.
+The primary FOM is the Triad rate (MB/s). Please report all data printed to stdout.
