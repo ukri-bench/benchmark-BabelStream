@@ -6,7 +6,7 @@ When used for GPUs, this benchmark does not include the data transfer time for C
 ### Allowed Modifications
 Offerors are permitted to modify the benchmark in the following ways:
 
-####Programming Pragmas
+#### Programming Pragmas
 the Offeror may modify the programming (e.g. OpenMP, OpenACC) pragmas in the benchmark as required 
 to permit execution on the proposed system provided: 
 - All modified sources and build scripts must be included in the RFP response.
