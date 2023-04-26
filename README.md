@@ -11,6 +11,9 @@ the Offeror may modify the programming (e.g. OpenMP, OpenACC) pragmas in the ben
 to permit execution on the proposed system provided: 
 - All modified sources and build scripts must be included in the RFP response.
 - Any modified code used for the response must continue to be a valid program (compliant to the standard being proposed in the Offeror's response).
+
+#### Memory Allocation
+
 - For accelerators, arrays should only be allocated on device's global memory, any pre-staging of data or use of user controlled cache is not allowed.
 - The sizes of the allocated arrays must be 4x larger than the lowest level of cache. 
 
