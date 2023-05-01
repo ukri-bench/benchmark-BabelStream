@@ -41,7 +41,7 @@ when using `cuda` programming model for a device with compute capability 8.0 bel
 cmake -DMODEL=cuda -DCMAKE_CXX_COMPILER=nvc++ -DCMAKE_CUDA_COMPILER=nvcc -DCUDA_ARCH=sm_80 ../
 ```
 
-All the kernels are validated at the end of their execution, no explicit validation test is needed. Below are some examples of building and running this benchmark for different architectures.
+All the kernels are validated at the end of their execution, no explicit validation test is needed. Below are some examples of building and running this benchmark for different architectures. Below are examples of how to build and run BabelStream benchmark for OpenMP and OpenMP Offload on CPU and GPU respectively. 
 
 #### Using OpenMP on a CPU
 ```bash
@@ -67,5 +67,28 @@ Triad       30536.210   0.02637     0.10638     0.05581
 Dot         20623.267   0.02603     0.25623     0.03863     
 
 ```
+#### Using OpenMP Offload for GPU
+```bash
+mkdir build
+cd build
+cmake -DMODEL=omp -DCMAKE_CXX_COMPILER=nvc++ -DOFFLOAD=ON -DOFFLOAD_FLAGS="-mp=gpu -gpu=cc80 -Minfo" ../
+make
+
+> ./omp-stream 
+BabelStream
+Version: 4.0
+Implementation: OpenMP
+Running kernels 100 times
+Precision: double
+Array size: 268.4 MB (=0.3 GB)
+Total size: 805.3 MB (=0.8 GB)
+Function    MBytes/sec  Min (sec)   Max         Average     
+Copy        1338402.984 0.00040     0.00041     0.00040     
+Mul         1298571.257 0.00041     0.00042     0.00042     
+Add         1368223.698 0.00059     0.00059     0.00059     
+Triad       1376683.861 0.00058     0.00059     0.00059     
+Dot         436311.922  0.00123     0.00124     0.00124 
+```
+
 ### Reporting
 The primary FOM is the Triad rate (MB/s). Please report all data printed to stdout.
