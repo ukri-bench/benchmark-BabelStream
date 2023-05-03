@@ -42,28 +42,38 @@ the programming models implemented in the current version of BabelStream
 
 Additional CMake variables may be needed for some programming models.
 For example,
-| OpenMP | OpenMP-offload | CUDA |
-|---     |---             |---   |
+<table><tr><th> OpenMP </th><th> OpenMP-offload </th><th></th><tr>
+<tr><td>
 
-|```bash
+```bash
 cmake \
 -DMODEL=omp \
-../ ```
-|```bash
+../ 
+```
+
+</td><td>
+
+```bash
 cmake \
 -DMODEL=omp \
 -DCMAKE_CXX_COMPILER=nvc++ \
 -DOFFLOAD=ON \
 -DOFFLOAD_FLAGS="-mp=gpu -gpu=cc80 -Minfo" \
-../ ```
-|```bash
+../ 
+```
+
+</td><td>
+
+```bash
 cmake \
 -DMODEL=cuda \
 -DCMAKE_CXX_COMPILER=nvc++ \
 -DCMAKE_CUDA_COMPILER=nvcc \
 -DCUDA_ARCH=sm_80 \
-../ ```
-|
+../ 
+```
+
+</td></tr></table>
 
 #Execution
 
