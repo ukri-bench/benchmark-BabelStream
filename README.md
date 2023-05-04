@@ -42,7 +42,7 @@ the programming models implemented in the current version of BabelStream<br>
 
 Additional CMake variables may be needed for some programming models.
 For example,
-<table><tr><th> OpenMP </th><th> OpenMP-offload </th><th></th><tr>
+<table><tr><th> OpenMP </th><th> OpenMP-offload </th><th> CUDA </th><tr>
 <tr><td>
 
 ```bash
