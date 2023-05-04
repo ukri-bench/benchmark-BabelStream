@@ -3,20 +3,19 @@
 The Babelstream benchmark was developed at the University of Bristol to measure the achievable main memory bandwidth across variety of CPUs and GPUs using simple kernels. These kernels process data that is larger than the largest level of cache so that transfers from main memory are always in play. Dynamically allocated arrays are used to prevent any compile time optimizations. Babelstream provides implementations in multiple programming models for CPUs and GPUs. When used for GPUs, this benchmark does not include the data transfer time for CPU-GPU transfers.
 
 # Allowed Modifications
-Offerors are permitted to modify the benchmark in the following ways:
+Offerors are permitted to modify the benchmark in the following ways.
 
-## Programming Pragmas
-the Offeror may modify the programming (e.g. OpenMP, OpenACC) pragmas in the benchmark as required  to permit execution on the proposed system, provided: 
-- All modified sources and build scripts must be included in the RFP response.
-- Any modified code used for the response must continue to be a valid program (compliant to the standard being proposed in the Offeror's response).
+**Programming Pragmas**:<br>
+- The Offeror may modify the programming (e.g. OpenMP, OpenACC) pragmas in the benchmark as required  to permit execution on the proposed system, provided: 
+   - All modified sources and build scripts must be included in the RFP response.
+   - Any modified code used for the response must continue to be a valid program (compliant to the standard being proposed in the Offeror's response).
 
-## Memory Allocation
-
+**Memory Allocation**<br>
 - For accelerators, arrays should only be allocated on device's global memory, any pre-staging of data or use of user controlled cache is not allowed.
-- The sizes of the allocated arrays must be 4x larger than the lowest level of cache. 
+- The sizes of the allocated arrays must be 4x larger than the largest level of cache. 
 
-## Concurrency & Affinity
-The Offeror may change the kernel launch configurations, type of memory management (e.g. CUDA managed memory, separate host and device pointers etc.).
+**Concurrency & Affinity**<br>
+- The Offeror may change the kernel launch configurations, type of memory management (e.g. CUDA managed memory, separate host and device pointers etc.).
 
 # Installation
 
@@ -35,7 +34,7 @@ cmake -DMODEL=<model> <CMAKE_OPTIONS> ../
 make
 ```
 where `<model>` should be substituted with one of
-the programming models implemented in the current version of BabelStream
+the programming models implemented in the current version of BabelStream<br>
 ( omp; ocl; std; std20; hip; cuda; kokkos;
   sycl; sycl2020; acc; raja; tbb; thrust )
   
