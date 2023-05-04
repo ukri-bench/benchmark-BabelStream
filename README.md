@@ -75,7 +75,7 @@ cmake \
 
 </td></tr></table>
 
-#Execution
+# Execution
 
 The BabelStream executable, `<model>-stream`,
 can be found in the `build` directory
@@ -95,7 +95,7 @@ All the kernels are validated at the end of their execution;
 no explicit validation test is needed.
 
 
-#Sample Output
+# Sample Output
 
 ```bash
 #OpenMP-offload on Perlmutter
