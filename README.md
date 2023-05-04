@@ -6,6 +6,7 @@ The Babelstream benchmark was developed at the University of Bristol to measure 
 Offerors are permitted to modify the benchmark in the following ways.
 
 **Programming Pragmas**:<br>
+- The Offeror may choose any of the programming models implemented in BabelStream.
 - The Offeror may modify the programming (e.g. OpenMP, OpenACC) pragmas in the benchmark as required  to permit execution on the proposed system, provided: 
    - All modified sources and build scripts must be included in the RFP response.
    - Any modified code used for the response must continue to be a valid program (compliant to the standard being proposed in the Offeror's response).
