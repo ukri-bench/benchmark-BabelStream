@@ -13,7 +13,7 @@ Offerors are permitted to modify the benchmark in the following ways.
 
 **Memory Allocation**<br>
 - For accelerators, arrays should only be allocated on device's global memory, any pre-staging of data or use of user controlled cache is not allowed.
-- The sizes of the allocated arrays must be 4x larger than the largest level of cache. 
+- The sizes of the allocated arrays must be 4x larger than the largest level of cache. Array sizes can be modified by changing the variable `ARRAY_SIZE` on `line 55` of `./src/main.cpp` in BabelStream benchmark source code. 
 
 **Concurrency & Affinity**<br>
 - The Offeror may change the kernel launch configurations, type of memory management (e.g. CUDA managed memory, separate host and device pointers etc.).
