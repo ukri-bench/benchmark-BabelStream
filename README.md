@@ -1,5 +1,7 @@
 # Benchmark Description
 
+**Note:** This benchmark/repository is closely based on the one used for the [NERSC-10 benchmarks](https://www.nersc.gov/systems/nersc-10/benchmarks/)
+
 The Babelstream benchmark was developed at the University of Bristol to measure the achievable main memory bandwidth across variety of CPUs and GPUs using simple kernels. These kernels process data that is larger than the largest level of cache so that transfers from main memory are always in play. Dynamically allocated arrays are used to prevent any compile time optimizations. Babelstream provides implementations in multiple programming models for CPUs and GPUs. When used for GPUs, this benchmark does not include the data transfer time for CPU-GPU transfers.
 
 # Allowed Modifications
@@ -127,3 +129,4 @@ Report all data printed to stdout.
 International Journal of Computational Science and Engineering.
 Special issue. Vol. 17, No. 3, pp. 247–262. 2018.
 DOI: 10.1504/IJCSE.2018.095847
+- NERSC-10 benchmarks. Accessed 2 July 2024, https://www.nersc.gov/systems/nersc-10/benchmarks/
