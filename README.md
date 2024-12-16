@@ -100,7 +100,6 @@ no explicit validation test is needed.
 # Sample Output
 
 ```bash
-#OpenMP-offload on Perlmutter
 > ./omp-stream
 BabelStream
 Version: 4.0
