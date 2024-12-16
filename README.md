@@ -100,20 +100,27 @@ no explicit validation test is needed.
 # Sample Output
 
 ```bash
-> ./omp-stream
+# Tursa
+> ./cuda-stream
 BabelStream
-Version: 4.0
-Implementation: OpenMP
+Version: 5.0
+Implementation: CUDA
 Running kernels 100 times
 Precision: double
 Array size: 268.4 MB (=0.3 GB)
 Total size: 805.3 MB (=0.8 GB)
+Using CUDA device NVIDIA A100-SXM4-80GB
+Driver: 12030
+Memory: DEFAULT
+Reduction kernel config: 432 groups of (fixed) size 1024
+Init: 0.078539 s (=10253.531921 MBytes/sec)
+Read: 0.000810 s (=994263.084401 MBytes/sec)
 Function    MBytes/sec  Min (sec)   Max         Average     
-Copy        1338402.984 0.00040     0.00041     0.00040     
-Mul         1298571.257 0.00041     0.00042     0.00042     
-Add         1368223.698 0.00059     0.00059     0.00059     
-Triad       1376683.861 0.00058     0.00059     0.00059     
-Dot         436311.922  0.00123     0.00124     0.00124 
+Copy        1709360.800 0.00031     0.00032     0.00032     
+Mul         1676181.608 0.00032     0.00033     0.00033     
+Add         1715845.543 0.00047     0.00048     0.00047     
+Triad       1724827.354 0.00047     0.00047     0.00047     
+Dot         1586905.948 0.00034     0.00036     0.00035   
 ```
 
 # Reporting
