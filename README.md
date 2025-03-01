@@ -123,6 +123,29 @@ Triad       1724827.354 0.00047     0.00047     0.00047
 Dot         1586905.948 0.00034     0.00036     0.00035   
 ```
 
+```bash
+# ARCHER2
+> salloc --nodes=1 --tasks-per-node=1 --cpus-per-task=128 --time=0:20:0
+> export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+> export OMP_PLACES=cores
+> srun --hint=nomultithread --distribution=block:block _build_cce_omp/omp-stream
+BabelStream
+Version: 5.0
+Implementation: OpenMP
+Running kernels 1000 times
+Precision: double
+Array size: 268.4 MB (=0.3 GB)
+Total size: 805.3 MB (=0.8 GB)
+Init: 0.043660 s (=18444.837169 MBytes/sec)
+Read: 0.053030 s (=15185.751175 MBytes/sec)
+Function    MBytes/sec  Min (sec)   Max         Average     
+Copy        421983.400  0.00127     0.00160     0.00132     
+Mul         295653.136  0.00182     0.00227     0.00189     
+Add         319003.459  0.00252     0.00278     0.00262     
+Triad       293900.783  0.00274     0.00303     0.00282     
+Dot         340542.635  0.00158     0.00224     0.00167     
+```
+
 # Reporting
 The primary figure of merit (FOM) is the Triad rate (MB/s).
 Report all data printed to stdout.
