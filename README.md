@@ -1,26 +1,40 @@
-# Benchmark Description
+# BabelStream benchmark
 
 **Note:** This benchmark/repository is closely based on the one used for the [NERSC-10 benchmarks](https://www.nersc.gov/systems/nersc-10/benchmarks/)
 
 The Babelstream benchmark was developed at the University of Bristol to measure the achievable main memory bandwidth across variety of CPUs and GPUs using simple kernels. These kernels process data that is larger than the largest level of cache so that transfers from main memory are always in play. Dynamically allocated arrays are used to prevent any compile time optimizations. Babelstream provides implementations in multiple programming models for CPUs and GPUs. When used for GPUs, this benchmark does not include the data transfer time for CPU-GPU transfers.
 
-# Allowed Modifications
-Offerors are permitted to modify the benchmark in the following ways.
+## Status
 
-**Programming Pragmas**:<br>
-- The Offeror may choose any of the programming models implemented in BabelStream.
-- The Offeror may modify the programming (e.g. OpenMP, OpenACC) pragmas in the benchmark as required  to permit execution on the proposed system, provided: 
-   - All modified sources and build scripts must be included in the RFP response.
-   - Any modified code used for the response must continue to be a valid program (compliant to the standard being proposed in the Offeror's response).
+Stable
 
-**Memory Allocation**<br>
-- For accelerators, arrays should only be allocated on device's global memory, any pre-staging of data or use of user controlled cache is not allowed.
-- The sizes of the allocated arrays must be 4x larger than the largest level of cache. Array sizes can be modified by changing the variable `ARRAY_SIZE` on `line 55` of `./src/main.cpp` in BabelStream benchmark source code. 
+## Maintainers
 
-**Concurrency & Affinity**<br>
-- The Offeror may change the kernel launch configurations, type of memory management (e.g. CUDA managed memory, separate host and device pointers etc.).
+- @aturner-epcc ([https://github.com/aturner-epcc](https://github.com/aturner-epcc))
 
-# Installation
+## Overview
+
+### Software
+
+- [https://github.com/UoB-HPC/BabelStream](https://github.com/UoB-HPC/BabelStream)
+
+### Architectures
+
+- CPU: x86, Arm
+- GPU: NVIDIA, AMD, Intel
+
+### Languages and programming models
+
+- Programming languages: C++
+- Parallel models: OpenMP
+- Accelerator offload models: CUDA, HIP, OpenACC, Kokkos, SYCL, RAJA, OpenCL, TBB
+
+## Building the benchmark
+
+At the moment, only manual build instructions are available. We plan to add Spack
+build instructions in the future.
+
+### Manual build
 
 The Babelstream source code can be obtained from:
 https://github.com/UoB-HPC/BabelStream.git using:
@@ -77,12 +91,15 @@ cmake \
 
 </td></tr></table>
 
-# Execution
+## Running the benchmark
 
-The BabelStream executable, `<model>-stream`,
-can be found in the `build` directory
-and can be run without additional arguments,
-for example:
+At the moment, only manual run instructions are available. We plan to add ReFrame
+build instructions in the future.
+
+### Running manually
+
+The BabelStream executable, `<model>-stream`, can be found in the `build` directory
+and can be run without additional arguments, for example:
 
 ```bash
 #OpenMP execution on a CPU
@@ -96,8 +113,10 @@ for example:
 All the kernels are validated at the end of their execution;
 no explicit validation test is needed.
 
+## Example performance data
 
-# Sample Output
+The primary figure of merit (FoM) is the Triad rate (MB/s).
+Report all data printed to stdout.
 
 ```bash
 # Tursa
@@ -146,16 +165,23 @@ Triad       293900.783  0.00274     0.00303     0.00282
 Dot         340542.635  0.00158     0.00224     0.00167     
 ```
 
-# Reporting
-The primary figure of merit (FOM) is the Triad rate (MB/s).
-Report all data printed to stdout.
+## Allowed Modifications
 
-# References
+Offerors are permitted to modify the benchmark in the following ways.
 
-- Deakin T, Price J, Martineau M, McIntosh-Smith S.
-"Evaluating attainable memory bandwidth of 
-  parallel programming models via BabelStream."
-International Journal of Computational Science and Engineering.
-Special issue. Vol. 17, No. 3, pp. 247–262. 2018.
-DOI: 10.1504/IJCSE.2018.095847
-- NERSC-10 benchmarks. Accessed 2 July 2024, https://www.nersc.gov/systems/nersc-10/benchmarks/
+**Programming Pragmas**:<br>
+- The Offeror may choose any of the programming models implemented in BabelStream.
+- The Offeror may modify the programming (e.g. OpenMP, OpenACC) pragmas in the benchmark as required  to permit execution on the proposed system, provided: 
+   - All modified sources and build scripts must be included in the RFP response.
+   - Any modified code used for the response must continue to be a valid program (compliant to the standard being proposed in the Offeror's response).
+
+**Memory Allocation**<br>
+- For accelerators, arrays should only be allocated on device's global memory, any pre-staging of data or use of user controlled cache is not allowed.
+- The sizes of the allocated arrays must be 4x larger than the largest level of cache. Array sizes can be modified by changing the variable `ARRAY_SIZE` on `line 55` of `./src/main.cpp` in BabelStream benchmark source code. 
+
+**Concurrency & Affinity**<br>
+- The Offeror may change the kernel launch configurations, type of memory management (e.g. CUDA managed memory, separate host and device pointers etc.).
+
+## License
+
+This benchmark description and associated files are released under the MIT license.
