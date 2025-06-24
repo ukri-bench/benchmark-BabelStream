@@ -43,6 +43,13 @@ https://github.com/UoB-HPC/BabelStream.git using:
 git clone https://github.com/UoB-HPC/BabelStream.git .
 ```
 
+Move into the repo directory and checkout v5.0:
+
+```bash
+cd BabelStream
+git checkout v5.0
+```
+
 The series of commands to configure and build BabelStream is
 ```bash
 mkdir build
