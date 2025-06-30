@@ -120,6 +120,11 @@ and can be run without additional arguments, for example:
 All the kernels are validated at the end of their execution;
 no explicit validation test is needed.
 
+We supply example job submission scripts:
+
+- [ARCHER2 CPU (AMD 7742), Slurm](scripts/archer2-cpu.slurm)
+- [Tursa GPU (NVIDIA A100-80), Slurm](scripts/tursa-gpu-a100.slurm)
+
 ## Example performance data
 
 The primary figure of merit (FoM) is the Triad rate (MB/s).
